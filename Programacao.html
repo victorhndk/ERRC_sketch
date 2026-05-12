@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERRC 2026 Evento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; }
+        html { scroll-behavior: smooth; }
+
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background: #04294f; color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav a { color: white; text-decoration: none; margin-left: 25px; font-weight: 600; transition: 0.3s; padding: 5px 10px; border-radius: 4px;}
+        nav a:hover { background: #3a71c4; }
+
+        .banner { 
+            text-align: center; 
+            padding: 60px 20px; 
+            background: linear-gradient(135deg, #04294f 0%, #1a5c9e 100%); 
+            color: white; 
+        }
+        .banner h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        main { padding: 40px 10%; max-width: 1200px; margin: auto; }
+
+        .dia-seletor { 
+            display: flex; 
+            justify-content: center; 
+            gap: 15px; 
+            margin-bottom: 40px; 
+        }
+        .dia-btn { 
+            padding: 12px 25px; 
+            background: #fff; 
+            border: 2px solid #04294f; 
+            color: #04294f; 
+            font-weight: 800; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            transition: 0.3s;
+        }
+        .dia-btn.active, .dia-btn:hover { 
+            background: #04294f; 
+            color: #fff; 
+        }
+
+        .cronograma-container { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        .item-cronograma { 
+            display: grid; 
+            grid-template-columns: 150px 1fr; 
+            border-bottom: 1px solid #eee; 
+            transition: 0.3s;
+        }
+        .item-cronograma:hover { background-color: #f9fbfd; }
+        
+        .horario { 
+            background: #f0f4f8; 
+            padding: 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 800; 
+            color: #04294f; 
+            font-size: 1.1rem;
+        }
+
+        .detalhes { padding: 20px; }
+        .detalhes h3 { color: #1a5c9e; margin-bottom: 5px; }
+        .detalhes .palestrante { font-weight: 600; color: #555; font-size: 0.9rem; margin-bottom: 10px; display: block; }
+        .detalhes p { color: #666; font-size: 0.95rem; }
+        .tipo-tag { 
+            display: inline-block; 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            font-weight: 800; 
+            margin-top: 10px;
+        }
+        .tag-palestra { background: #e3f2fd; color: #1976d2; }
+        .tag-minicurso { background: #f3e5f5; color: #7b1fa2; }
+        .tag-social { background: #fff3e0; color: #f57c00; }
+
+        footer { text-align: center; padding: 40px; background: #04294f; color: white; margin-top: 60px; }
+
+        @media (max-width: 768px) {
+            .item-cronograma { grid-template-columns: 1fr; }
+            .horario { justify-content: flex-start; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <strong style="font-size: 1.5rem; letter-spacing: 1px;">ERRC 2026</strong>
+        </div>
+        <nav aria-label="Menu Principal">
+            <a href="TelaInicial.html">Início</a>
+            <a href="Sobre.html">Sobre</a>
+            <a href="Localizacao.html">Localização</a>
+            <a href="Inscricoes.html">Inscrições</a>
+            <a href="Contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <h1>Cronograma do Evento</h1>
+        <p>Confira as palestras, minicursos e oficinas do ERRC 2026.</p>
+    </section>
+
+    <main>
+        <div class="dia-seletor"> <!---não funcionando ainda por motivos de simplecidade-->
+            <button class="dia-btn active">Dia 01</button>
+            <button class="dia-btn">Dia 02</button>
+            <button class="dia-btn">Dia 03</button>
+        </div>
+
+        <div class="cronograma-container">
+            <div class="item-cronograma">
+                <div class="horario">08:00 - 09:00</div>
+                <div class="detalhes">
+                    <h3>Credenciamento e Coffee Break</h3>
+                    <p>Recepção dos participantes e entrega de kits do evento.</p>
+                    <span class="tipo-tag tag-social">Social</span>
+                </div>
+            </div>
+            <div class="item-cronograma">
+                <div class="horario">09:00 - 10:30</div>
+                <div class="detalhes">
+                    <h3>Cerimônia de Abertura</h3>
+                    <span class="palestrante">Comitê Organizador e Reitoria UFSM</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <span class="tipo-tag tag-palestra">Palestra</span>
+                </div>
+            </div>
+            <div class="item-cronograma">
+                <div class="horario">10:30 - 12:00</div>
+                <div class="detalhes">
+                    <h3>O Futuro das Redes 6G e IoT</h3>
+                    <span class="palestrante">Dr. Lorem Ipsum</span>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+                    <span class="tipo-tag tag-palestra">Keynote</span>
+                </div>
+            </div>
+            <div class="item-cronograma">
+                <div class="horario">12:00 - 13:30</div>
+                <div class="detalhes">
+                    <h3>Intervalo para Almoço</h3>
+                    <p>Consulte a página de localização para sugestões de restaurantes próximos ao campus.</p>
+                    <span class="tipo-tag tag-social">Intervalo</span>
+                </div>
+            </div>
+            <div class="item-cronograma">
+                <div class="horario">13:30 - 17:30</div>
+                <div class="detalhes">
+                    <h3>Minicurso: Segurança em Ambientes Cloud</h3>
+                    <span class="palestrante">Prof. Especialista Dolor Sit</span>
+                    <p>Sessão prática focada em ferramentas de monitoramento e mitigação de ataques em larga escala. Necessário levar notebook.</p>
+                    <span class="tipo-tag tag-minicurso">Minicurso</span>
+                </div>
+            </div>
+            <div class="item-cronograma">
+                <div class="horario">17:30 - 18:30</div>
+                <div class="detalhes">
+                    <h3>Sessão de Pôsteres Acadêmicos</h3>
+                    <p>Apresentação de trabalhos científicos e networking entre pesquisadores.</p>
+                    <span class="tipo-tag tag-palestra">Acadêmico</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ERRC - Todos os direitos reservados.</p>
+        <p>UFSM - Santa Maria, RS</p>
+    </footer>
+
+</body>
+</html>
