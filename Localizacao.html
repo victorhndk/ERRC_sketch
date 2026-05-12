@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERRC 2026 Evento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; }
+        html { scroll-behavior: smooth; }
+
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background: #04294f; color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav a { color: white; text-decoration: none; margin-left: 25px; font-weight: 600; transition: 0.3s; padding: 5px 10px; border-radius: 4px;}
+        nav a:hover { background: #3a71c4; }
+
+        .banner { 
+            text-align: center; 
+            padding: 60px 20px; 
+            background: linear-gradient(135deg, #04294f 0%, #1a5c9e 100%); 
+            color: white; 
+        }
+        .banner h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        main { padding: 40px 10%; max-width: 1200px; margin: auto; }
+
+        .info-section { margin-bottom: 50px; }
+        .info-section h2 { color: #04294f; border-bottom: 3px solid #3a71c4; display: inline-block; margin-bottom: 25px; padding-bottom: 5px; }
+
+        .grid-info { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+        }
+
+        .location-card { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid #3a71c4;
+        }
+        .location-card h3 { color: #1a5c9e; margin-bottom: 8px; font-size: 1.2rem; }
+        .location-card p { font-size: 0.95rem; color: #555; }
+        .location-card .address { font-style: italic; margin-top: 8px; display: block; color: #888; }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            background: #ddd;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        footer { text-align: center; padding: 40px; background: #04294f; color: white; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <strong style="font-size: 1.5rem; letter-spacing: 1px;">ERRC 2026</strong>
+        </div>
+        <nav aria-label="Menu Principal">
+            <a href="TelaInicial.html">Início</a>
+            <a href="Sobre.html">Sobre</a>
+            <a href="Programacao.html">Programação</a>
+            <a href="Inscricoes.html">Inscrições</a>
+            <a href="Contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <h1>Localização e Utilidades</h1>
+        <p>O evento ocorrerá no campus da UFSM em Santa Maria, RS.</p>
+    </section>
+
+    <main>
+        <section class="info-section">
+            <h2>Como Chegar</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.293925794387!2d-53.71971122551356!3d-29.711244075093052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9503b5e705d63467%3A0x3d0ea46b1a86827c!2sCTISM%20-%20Col%C3%A9gio%20T%C3%A9cnico%20Industrial%20de%20Santa%20Maria!5e0!3m2!1spt-BR!2sbr!4v1777927671545!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p>O ERRC 2026 será sediado no Colégio Técnico Industrial de Santa Maria (CTISM) da UFSM, no bairro Camobi.</p>
+        </section>
+        <section class="info-section">
+            <h2>Hotéis Próximos</h2>
+            <div class="grid-info">
+                <div class="location-card">
+                    <h3>Park Hotel Morotin</h3>
+                    <p>Localizado próximo à entrada da UFSM, ideal para congressistas.</p>
+                    <span class="address">RST-287, Km 239 - Camobi</span>
+                </div>
+                <div class="location-card">
+                    <h3>Hotel Paraíso</h3>
+                    <p>Opção econômica e muito próxima ao campus universitário.</p>
+                    <span class="address">Av. Prefeito Evandro Behr - Camobi</span>
+                </div>
+                <div class="location-card">
+                    <h3>Itaimbé Palace Hotel</h3>
+                    <p>Opção no centro da cidade, com fácil acesso via ônibus (Linha UFSM).</p>
+                    <span class="address">Rua Venâncio Aires, 2741 - Centro</span>
+                </div>
+            </div>
+        </section>
+        <section class="info-section">
+            <h2>Lanchonetes e Restaurantes</h2>
+            <div class="grid-info">
+                <div class="location-card">
+                    <h3>Restaurante Universitário (RU)</h3>
+                    <p>Opção principal dentro do campus (verificar horários para visitantes).</p>
+                    <span class="address">Campus UFSM - Próximo à Reitoria</span>
+                </div>
+                <div class="location-card">
+                    <h3>Shopping Camobi</h3>
+                    <p>Diversas opções de fast-food, lanches e almoço executivo.</p>
+                    <span class="address">Av. Prefeito Evandro Behr, Camobi</span>
+                </div>
+                <div class="location-card">
+                    <h3>Avenida Lanches</h3>
+                    <p>Famoso pelos "Xis" tradicionais de Santa Maria.</p>
+                    <span class="address">Av. Prefeito Evandro Behr, 5900</span>
+                </div>
+            </div>
+        </section>
+        <section class="info-section">
+            <h2>Hospitais e Emergência</h2>
+            <div class="grid-info">
+                <div class="location-card">
+                    <h3>HUSM (Hospital Universitário)</h3>
+                    <p>Hospital público de referência, localizado dentro do próprio campus.</p>
+                    <span class="address">Campus UFSM - Camobi</span>
+                </div>
+                <div class="location-card">
+                    <h3>Complexo Hospitalar Astrogildo de Azevedo</h3>
+                    <p>Principal hospital privado e de convênios da cidade.</p>
+                    <span class="address">Rua Floriano Peixoto, 1750 - Centro</span>
+                </div>
+                <div class="location-card">
+                    <h3>UPA 24h</h3>
+                    <p>Unidade de Pronto Atendimento para casos de urgência.</p>
+                    <span class="address">Rua Ary de Moraes, s/n - Bairro Perpétuo Socorro</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ERRC - Todos os direitos reservados.</p>
+        <p>UFSM - Santa Maria, RS</p>
+    </footer>
+
+</body>
+</html>
