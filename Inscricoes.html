@@ -56,7 +56,24 @@
         .date-item strong { display: block; color: #d9534f; }
 
         .topics-list { column-count: 2; column-gap: 40px; margin-top: 20px; }
-        @media (max-width: 768px) { .topics-list { column-count: 1; } }
+
+        @media (max-width: 992px) {
+            header { padding: 1.5rem 5%; }
+            main { padding: 30px 5%; }
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+            nav { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
+            nav a { margin-left: 0; font-size: 0.85rem; }
+
+            .topics-list { column-count: 1; }
+            
+            .btn-action { width: 100%; margin-right: 0; margin-bottom: 10px; }
+            
+            .banner h1 { font-size: 1.8rem; }
+        }
+        
         .topics-list li { margin-bottom: 10px; list-style-position: inside; color: #555; }
 
         .btn-action { 
