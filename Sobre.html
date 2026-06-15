@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERRC 2026 Evento</title>
+    <title>ERRC 2026 - Sobre a Escola Regional de Redes de Computadores</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
 
@@ -75,7 +75,57 @@
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .card h3 { margin-bottom: 15px; color: #1a5c9e; font-size: 1.4rem; }
 
-        footer { text-align: center; padding: 40px 20px; background: #04294f; color: white; margin-top: 60px; }
+        footer { 
+            padding: 60px 20px 40px 20px; 
+            background: #04294f; 
+            color: white; 
+            margin-top: 60px; 
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        
+        .footer-parceiros {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-parceiros h3 {
+            font-size: 1rem;
+            color: #3a71c4;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .footer-parceiros h3:not(:first-child) {
+            margin-top: 35px;
+        }
+
+        .grid-parceiros {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 45px;
+        }
+        
+        .logo-parceiro {
+            max-height: 55px;
+            width: auto;
+            filter: brightness(0) invert(1) opacity(0.7);
+            transition: 0.3s;
+        }
+        
+        .logo-parceiro:hover {
+            filter: none; 
+            opacity: 1;
+        }
+
+        .footer-info p { opacity: 0.8; margin-bottom: 6px; }
+        .footer-info strong { opacity: 1; color: #3a71c4; }
 
         @media (max-width: 900px) {
             header { padding: 1.5rem 5%; }
@@ -100,6 +150,8 @@
             .banner h1 { font-size: 2.2rem; }
             .banner p { font-size: 1rem; }
             .intro-text h2 { font-size: 1.8rem; }
+            .grid-parceiros { gap: 25px; }
+            .logo-parceiro { max-height: 45px; }
         }
     </style>
 </head>
@@ -147,8 +199,27 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 ERRC - Todos os direitos reservados.</p>
-        <p>UFSM - Santa Maria, RS</p>
+        <div class="footer-parceiros">
+            <h3>Realização</h3>
+            <div class="grid-parceiros">
+                <img class="logo-parceiro" src="https://via.placeholder.com/150x60?text=SBC" alt="Logo SBC">
+                <img class="logo-parceiro" src="https://via.placeholder.com/150x60?text=UFSM" alt="Logo UFSM">
+                <img class="logo-parceiro" src="https://www.inf.ufrgs.br/errc2023/wp-content/uploads/2023/07/01-CTISM_color_pequeno-291x300.png" alt="Logo CTISM">
+            </div>
+
+            <h3>Apoio</h3>
+            <div class="grid-parceiros">
+                <img class="logo-parceiro" src="https://www.inf.ufrgs.br/errc2023/wp-content/uploads/2023/07/ufrgs-logo-6-300x241.png" alt="Logo UFRGS">
+                <img class="logo-parceiro" src="https://www.inf.ufrgs.br/errc2023/wp-content/uploads/2023/07/Logo_logotipo_unipampa_cor-1-1024x695.jpg" alt="Logo UNIPAMPA">
+                <img class="logo-parceiro" src="https://lirp.cdn-website.com/705f6f12/dms3rep/multi/opt/UNISINOS---Posi-1920w.png" alt="Logo UNISINOS">
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <p>&copy; 2026 ERRC - Escola Regional de Redes de Computadores.</p>
+            <p>Organização: <strong>CTISM / UFSM</strong> - Santa Maria, RS</p>
+            <p style="font-size: 0.8rem; margin-top: 12px; opacity: 0.5;">Promovido por Sociedade Brasileira de Computação (SBC)</p>
+        </div>
     </footer>
 
 </body>
