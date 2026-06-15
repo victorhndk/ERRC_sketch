@@ -40,7 +40,42 @@
         .contact-card p { font-size: 1.1rem; color: #555; }
         .contact-card a { color: #3a71c4; text-decoration: none; font-weight: 600; }
 
-        footer { text-align: center; padding: 40px; background: #04294f; color: white; margin-top: 60px; }
+        footer { 
+            padding: 60px 20px 40px 20px; 
+            background: #04294f; 
+            color: white; 
+            margin-top: 80px; 
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        
+        .footer-parceiros {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-parceiros h3 {
+            font-size: 1rem;
+            color: #3a71c4;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .footer-parceiros h3:not(:first-child) { margin-top: 35px; }
+        .grid-parceiros { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 45px; }
+        
+        .logo-parceiro {
+            max-height: 95px; 
+            width: auto;
+            background: transparent; 
+        }
+
+        .footer-info p { opacity: 0.8; margin-bottom: 6px; }
+        .footer-info strong { opacity: 1; color: #3a71c4; }
 
         @media (max-width: 992px) {
             header { padding: 1.5rem 5%; }
@@ -55,6 +90,8 @@
             .banner h1 { font-size: 1.8rem; }
             .info-text { padding: 20px; }
             .info-section h2 { font-size: 1.6rem; }
+            .grid-parceiros { gap: 25px; }
+            .logo-parceiro { max-height: 65px; } 
         }
     </style>
 </head>
@@ -79,32 +116,36 @@
     </section>
 
     <main>
-        <section class="info-section">
-            <h2>Sobre o Projeto do Site</h2>
-            <div class="info-text">
-                <p>Este site foi desenvolvido como um <strong>esqueleto</strong> para a Escola Regional de Redes de Computadores (ERRC 2026). A existência deste modelo é fundamental para garantir uma estrutura de navegação intuitiva e rápida, servindo como base sólida para a implementação de conteúdos dinâmicos.</p>
-                <br>
-                <p>Ele serve para centralizar as informações acadêmicas e profissionais do evento, permitindo que estudantes e especialistas encontrem detalhes sobre minicursos, palestras e inscrições de forma organizada, otimizando o fluxo de comunicação entre a organização e os participantes.</p>
-            </div>
-        </section>
         <section class="contact-grid">
             <div class="contact-card">
                 <h3>E-mail</h3>
                 <p>Para dúvidas acadêmicas ou suporte:</p>
-                <a href="mailto:victor.stefano@redes.ufsm.br">victor.stefano@redes.ufsm.br</a>
+                <a href="mailto:#">---</a>
             </div>
 
             <div class="contact-card">
                 <h3>Telefone / WhatsApp</h3>
                 <p>Atendimento direto:</p>
-                <a href="https://wa.me/5555999813878" target="_blank">+55 (55) 99981-3878</a>
+                <a href="https://wa.me/#" target="_blank">---</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 ERRC - Todos os direitos reservados.</p>
-        <p>UFSM - Santa Maria, RS</p>
+        <div class="footer-parceiros">
+            <h3>Realização</h3>
+            <div class="grid-parceiros">
+                <img class="logo-parceiro" src="https://www.inf.ufrgs.br/errc2023/wp-content/uploads/2023/08/g12-200x300.png" alt="Logo SBC">
+                <img class="logo-parceiro" src="https://www.ufsm.br/app/themes/ufsm/images/brasao.svg" alt="Logo UFSM">
+                <img class="logo-parceiro" src="https://www.inf.ufrgs.br/errc2023/wp-content/uploads/2023/07/01-CTISM_color_pequeno-291x300.png" alt="Logo CTISM">
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <p>Organização: <strong>CTISM / UFSM</strong> - Santa Maria, RS</p>
+            <p style="font-size: 0.8rem; margin-bottom: 10px; opacity: 0.5;">Promovido por Sociedade Brasileira de Computação (SBC)</p>
+            <p>&copy; 2026 ERRC - Escola Regional de Redes de Computadores.</p>
+        </div>
     </footer>
 
 </body>
