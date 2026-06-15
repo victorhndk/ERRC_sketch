@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
     <title>ERRC 2026 Evento</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
@@ -23,9 +23,54 @@
         .banner h1 { font-size: 2.5rem; margin-bottom: 10px; }
 
         main { padding: 40px 10%; max-width: 1200px; margin: auto; }
+        
+        .tabs-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 35px;
+            border-bottom: 2px solid #ddd;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+        }
+        
+        .tab-btn:hover {
+            color: #3a71c4;
+        }
+        
+        .tab-btn.active {
+            color: #04294f;
+            border-bottom-color: #3a71c4;
+        }
 
-        .info-section { margin-bottom: 50px; }
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-section { margin-bottom: 40px; }
         .info-section h2 { color: #04294f; border-bottom: 3px solid #3a71c4; display: inline-block; margin-bottom: 25px; padding-bottom: 5px; }
+        .info-section h3 { color: #1a5c9e; margin: 20px 0 15px 0; font-size: 1.4rem; }
 
         .grid-info { 
             display: grid; 
@@ -39,17 +84,36 @@
             border-radius: 12px; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border-left: 5px solid #3a71c4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .location-card h3 { color: #1a5c9e; margin-bottom: 8px; font-size: 1.2rem; }
-        .location-card p { font-size: 0.95rem; color: #555; }
-        .location-card .address { font-style: italic; margin-top: 8px; display: block; color: #888; }
+        .location-card p { font-size: 0.95rem; color: #555; margin-bottom: 15px; }
+        .location-card .address { font-style: italic; margin-top: auto; display: block; color: #888; }
+
+        .badge {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            color: white;
+        }
+        .badge-baixo { background-color: #2e7d32; } 
+        .badge-medio { background-color: #ef6c00; } 
+        .badge-alto { background-color: #c62828; }  
+        .badge-info { background-color: #04294f; } 
 
         .map-container {
             width: 100%;
             height: 400px;
             background: #ddd;
             border-radius: 15px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -61,7 +125,6 @@
         @media (max-width: 992px) {
             header { padding: 1.5rem 5%; }
             main { padding: 30px 5%; }
-            .map-wrapper { padding-bottom: 60%; }
         }
 
         @media (max-width: 768px) {
@@ -69,8 +132,9 @@
             nav { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
             nav a { margin-left: 0; font-size: 0.85rem; }
             
-            .map-wrapper { padding-bottom: 100%; } 
             .banner h1 { font-size: 1.8rem; }
+            .tabs-nav { justify-content: center; }
+            .tab-btn { padding: 10px 15px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -95,79 +159,168 @@
     </section>
 
     <main>
-        <section class="info-section">
-            <h2>Como Chegar</h2>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.293925794387!2d-53.71971122551356!3d-29.711244075093052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9503b5e705d63467%3A0x3d0ea46b1a86827c!2sCTISM%20-%20Col%C3%A9gio%20T%C3%A9cnico%20Industrial%20de%20Santa%20Maria!5e0!3m2!1spt-BR!2sbr!4v1777927671545!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <p>O ERRC 2026 será sediado no Colégio Técnico Industrial de Santa Maria (CTISM) da UFSM, no bairro Camobi.</p>
-        </section>
-        <section class="info-section">
-            <h2>Hotéis Próximos</h2>
-            <div class="grid-info">
-                <div class="location-card">
-                    <h3>Park Hotel Morotin</h3>
-                    <p>Localizado próximo à entrada da UFSM, ideal para congressistas.</p>
-                    <span class="address">RST-287, Km 239 - Camobi</span>
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="alterarAba(event, 'aba-chegar')">📍 Como Chegar</button>
+            <button class="tab-btn" onclick="alterarAba(event, 'aba-restaurantes')">🍽️ Lanchonetes & Restaurantes</button>
+            <button class="tab-btn" onclick="alterarAba(event, 'aba-hoteis')">🏨 Hotéis Próximos</button>
+            <button class="tab-btn" onclick="alterarAba(event, 'aba-hospitais')">🚑 Hospitais & Emergência</button>
+        </div>
+
+        <div id="aba-chegar" class="tab-panel active">
+            <section class="info-section">
+                <h2>Como Chegar</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.293925794387!2d-53.71971122551356!3d-29.711244075093052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9503b5e705d63467%3A0x3d0ea46b1a86827c!2sCTISM%20-%20Col%C3%A9gio%20T%C3%A9cnico%20Industrial%20de%20Santa%20Maria!5e0!3m2!1spt-BR!2sbr!4v1777927671545!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
-                <div class="location-card">
-                    <h3>Hotel Paraíso</h3>
-                    <p>Opção econômica e muito próxima ao campus universitário.</p>
-                    <span class="address">Av. Prefeito Evandro Behr - Camobi</span>
+                <p style="margin-bottom: 25px;">O ERRC 2026 será sediado no Colégio Técnico Industrial de Santa Maria (CTISM) da UFSM, no bairro Camobi.</p>
+                
+                <h3>Opções de Transporte</h3>
+                <div class="grid-info">
+                    <div class="location-card">
+                        <div>
+                            <span class="badge badge-baixo">Urbano: R$ 7,25</span>
+                            <h3>Ônibus Coletivo Público</h3>
+                            <p>As linhas <strong>Universidade</strong> ou <strong>Camobi</strong> saem do Centro Histórico (Gare, arredores do colégio estadual Manuel Ribas) ou do Bairro Tancredo Neves e deixam você diretamente dentro do campus da UFSM.</p>
+                        </div>
+                        <span class="address">Passagem: R$ 7,25 (Aceita cartão local e dinheiro)</span>
+                    </div>
+
+                    <div class="location-card">
+                        <div>
+                            <span class="badge badge-medio">Intermunicipal</span>
+                            <h3>Ônibus de Viagem / Rodoviária</h3>
+                            <p>Principais viações conectando a cidade: <strong>Planalto Transportes</strong> e <strong>Viação Ouro e Prata</strong>. Passagens de Porto Alegre para Santa Maria giram em torno de <strong>R$ 110,00 a R$ 145,00</strong> dependendo do serviço (comum ou leito).</p>
+                        </div>
+                        <span class="address">Desembarque na Estação Rodoviária de SM</span>
+                    </div>
+
+                    <div class="location-card">
+                        <div>
+                            <span class="badge badge-alto">Aéreo</span>
+                            <h3>Aeroporto de Santa Maria (RIA)</h3>
+                            <p>Para quem vem de outros estados, o aeroporto local opera voos regulares que realizam a conexão direta com o <strong>Aeroporto Internacional de Porto Alegre (POA)</strong>.</p>
+                        </div>
+                        <span class="address">Localizado na foz do bairro Camobi, perto da UFSM</span>
+                    </div>
                 </div>
-                <div class="location-card">
-                    <h3>Itaimbé Palace Hotel</h3>
-                    <p>Opção no centro da cidade, com fácil acesso via ônibus (Linha UFSM).</p>
-                    <span class="address">Rua Venâncio Aires, 2741 - Centro</span>
+            </section>
+        </div>
+
+        <div id="aba-restaurantes" class="tab-panel">
+            <section class="info-section">
+                <h2>Lanchonetes e Restaurantes</h2>
+                <div class="grid-info">
+                    <div class="location-card">
+                        <div>
+                            <span class="badge badge-baixo">Orçamento: Baixo</span>
+                            <h3>Restaurante Universitário (RU)</h3>
+                            <p>Opção principal dentro do campus (verifique os horários para visitantes).</p>
+                        </div>
+                        <span class="address">Campus UFSM - Próximo à Reitoria</span>
+                    </div>
+                    <div class="location-card">
+                        <div>
+                            <span class="badge badge-medio">Orçamento: Médio</span>
+                            <h3>Shopping Camobi</h3>
+                            <p>Diversas opções de fast-food, lanches e almoço executivo em ambiente coberto.</p>
+                        </div>
+                        <span class="address">Av. Prefeito Evandro Behr, Camobi</span>
+                    </div>
+                    <div class="location-card">
+                        <div>
+                            <span class="badge badge-baixo">Orçamento: Baixo</span>
+                            <h3>Avenida Lanches</h3>
+                            <p>Famoso pelos "Xis" tradicionais e gigantes de Santa Maria.</p>
+                        </div>
+                        <span class="address">Av. Prefeito Evandro Behr, 5900</span>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section class="info-section">
-            <h2>Lanchonetes e Restaurantes</h2>
-            <div class="grid-info">
-                <div class="location-card">
-                    <h3>Restaurante Universitário (RU)</h3>
-                    <p>Opção principal dentro do campus (verificar horários para visitantes).</p>
-                    <span class="address">Campus UFSM - Próximo à Reitoria</span>
+            </section>
+        </div>
+
+        <div id="aba-hoteis" class="tab-panel">
+            <section class="info-section">
+                <h2>Hotéis Próximos</h2>
+                <div class="grid-info">
+                    <div class="location-card">
+                        <div>
+                            <span class="badge badge-medio">Orçamento: Médio</span>
+                            <h3>Park Hotel Morotin</h3>
+                            <p>Localizado próximo à entrada da UFSM, ideal para congressistas pela facilidade de acesso.</p>
+                        </div>
+                        <span class="address">RST-287, Km 239 - Camobi</span>
+                    </div>
+                    <div class="location-card">
+                        <div>
+                            <span class="badge badge-baixo">Orçamento: Baixo</span>
+                            <h3>Hotel Paraíso</h3>
+                            <p>Opção econômica, simples e muito próxima ao campus universitário.</p>
+                        </div>
+                        <span class="address">Av. Prefeito Evandro Behr - Camobi</span>
+                    </div>
+                    <div class="location-card">
+                        <div>
+                            <span class="badge badge-alto">Orçamento: Alto</span>
+                            <h3>Itaimbé Palace Hotel</h3>
+                            <p>Opção tradicional no centro da cidade, com ótima estrutura e fácil acesso via ônibus (Linha UFSM).</p>
+                        </div>
+                        <span class="address">Rua Venâncio Aires, 2741 - Centro</span>
+                    </div>
                 </div>
-                <div class="location-card">
-                    <h3>Shopping Camobi</h3>
-                    <p>Diversas opções de fast-food, lanches e almoço executivo.</p>
-                    <span class="address">Av. Prefeito Evandro Behr, Camobi</span>
+            </section>
+        </div>
+
+        <div id="aba-hospitais" class="tab-panel">
+            <section class="info-section">
+                <h2>Hospitais e Emergência</h2>
+                <div class="grid-info">
+                    <div class="location-card">
+                        <div>
+                            <h3>HUSM (Hospital Universitário)</h3>
+                            <p>Hospital público de referência regional, localizado dentro do próprio campus da UFSM.</p>
+                        </div>
+                        <span class="address">Campus UFSM - Camobi</span>
+                    </div>
+                    <div class="location-card">
+                        <div>
+                            <h3>Complexo Hospitalar Astrogildo de Azevedo</h3>
+                            <p>Principal hospital privado e de convênios médicos da cidade.</p>
+                        </div>
+                        <span class="address">Rua Floriano Peixoto, 1750 - Centro</span>
+                    </div>
+                    <div class="location-card">
+                        <div>
+                            <h3>UPA 24h</h3>
+                            <p>Unidade de Pronto Atendimento municipal para casos rápidos de urgência.</p>
+                        </div>
+                        <span class="address">Rua Ary de Moraes - Bairro Perpétuo Socorro</span>
+                    </div>
                 </div>
-                <div class="location-card">
-                    <h3>Avenida Lanches</h3>
-                    <p>Famoso pelos "Xis" tradicionais de Santa Maria.</p>
-                    <span class="address">Av. Prefeito Evandro Behr, 5900</span>
-                </div>
-            </div>
-        </section>
-        <section class="info-section">
-            <h2>Hospitais e Emergência</h2>
-            <div class="grid-info">
-                <div class="location-card">
-                    <h3>HUSM (Hospital Universitário)</h3>
-                    <p>Hospital público de referência, localizado dentro do próprio campus.</p>
-                    <span class="address">Campus UFSM - Camobi</span>
-                </div>
-                <div class="location-card">
-                    <h3>Complexo Hospitalar Astrogildo de Azevedo</h3>
-                    <p>Principal hospital privado e de convênios da cidade.</p>
-                    <span class="address">Rua Floriano Peixoto, 1750 - Centro</span>
-                </div>
-                <div class="location-card">
-                    <h3>UPA 24h</h3>
-                    <p>Unidade de Pronto Atendimento para casos de urgência.</p>
-                    <span class="address">Rua Ary de Moraes - Bairro Perpétuo Socorro</span>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 ERRC - Todos os direitos reservados.</p>
+        <p>© 2026 ERRC - Todos os direitos reservados.</p>
         <p>UFSM - Santa Maria, RS</p>
     </footer>
+
+    <script>
+        function alterarAba(evento, idAba) {
+            const paineis = document.querySelectorAll('.tab-panel');
+            paineis.forEach(painel => {
+                painel.classList.remove('active');
+            });
+
+            const botoes = document.querySelectorAll('.tab-btn');
+            botoes.forEach(botao => {
+                botao.classList.remove('active');
+            });
+
+            document.getElementById(idAba).classList.add('active');
+            evento.currentTarget.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
