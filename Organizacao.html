@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERRC 2026 - Organização e Edições Anteriores</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; }
+        html { scroll-behavior: smooth; }
+
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background: #04294f; color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav a { color: white; text-decoration: none; margin-left: 25px; font-weight: 600; transition: 0.3s; padding: 5px 10px; border-radius: 4px;}
+        nav a:hover { background: #3a71c4; }
+
+        .banner { 
+            text-align: center; 
+            padding: 60px 20px; 
+            background: linear-gradient(135deg, #04294f 0%, #1a5c9e 100%); 
+            color: white; 
+        }
+        .banner h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 800; }
+
+        main { padding: 40px 10%; max-width: 1200px; margin: auto; }
+        
+        .tabs-nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 35px;
+            border-bottom: 2px solid #ddd;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+        }
+        
+        .tab-btn:hover { color: #3a71c4; }
+        
+        .tab-btn.active {
+            color: #04294f;
+            border-bottom-color: #3a71c4;
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        .tab-panel.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-section { margin-bottom: 40px; }
+        .info-section h2 { color: #04294f; border-bottom: 3px solid #3a71c4; display: inline-block; margin-bottom: 25px; padding-bottom: 5px; }
+        .info-section p { margin-bottom: 25px; color: #555; font-size: 1.05rem; }
+
+        .grid-comissao {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .membro-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid #3a71c4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .membro-card h3 { color: #04294f; font-size: 1.2rem; margin-bottom: 5px; }
+        .membro-card .cargo { font-size: 0.9rem; font-weight: 700; color: #1a5c9e; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; }
+        .membro-card .lattes-btn {
+            align-self: flex-start;
+            text-decoration: none;
+            color: #3a71c4;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .membro-card .lattes-btn:hover { color: #04294f; text-decoration: underline; }
+
+        .edicoes-list {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .edicao-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 25px;
+            border-bottom: 1px solid #eee;
+            transition: 0.2s;
+        }
+        .edicao-item:last-child { border-bottom: none; }
+        .edicao-item:hover { background-color: #f8fafd; }
+
+        .edicao-info strong { color: #04294f; font-size: 1.1rem; }
+        .edicao-info span { color: #666; margin-left: 10px; }
+        
+        .site-link {
+            text-decoration: none;
+            background-color: #3a71c4;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .site-link:hover { background-color: #04294f; }
+        .site-link.inativo {
+            background-color: #e0e0e0;
+            color: #999;
+            cursor: not-allowed;
+        }
+
+        footer { 
+            padding: 60px 20px 40px 20px; 
+            background: #04294f; 
+            color: white; 
+            margin-top: 60px; 
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        
+        .footer-parceiros {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-parceiros h3 {
+            font-size: 1rem;
+            color: #3a71c4;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .grid-parceiros { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 45px; }
+        
+        .logo-parceiro {
+            max-height: 110px;
+            width: auto;
+            background: transparent;
+        }
+
+        .footer-info p { opacity: 0.8; margin-bottom: 6px; }
+        .footer-info strong { opacity: 1; color: #3a71c4; }
+
+        @media (max-width: 992px) {
+            header { padding: 1.5rem 5%; }
+            main { padding: 30px 5%; }
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+            nav { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
+            nav a { margin-left: 0; font-size: 0.85rem; }
+            
+            .banner h1 { font-size: 1.8rem; }
+            .tabs-nav { justify-content: center; }
+            .tab-btn { padding: 10px 15px; font-size: 0.9rem; }
+            .edicao-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .site-link { align-self: flex-start; }
+            .grid-parceiros { gap: 25px; }
+            .logo-parceiro { max-height: 65px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <strong style="font-size: 1.5rem; letter-spacing: 1px;">ERRC 2026</strong>
+        </div>
+        <nav aria-label="Menu Principal">
+            <a href="index.html">Início</a>
+            <a href="Sobre.html">Sobre</a>
+            <a href="Localizacao.html">Localização</a>
+            <a href="Programacao.html">Programação</a>
+            <a href="Inscricoes.html">Inscrições</a>
+            <a href="Organizacao.html" style="background: #3a71c4;">Organização</a>
+            <a href="Contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <h1>Equipe & Histórico</h1>
+        <p>Conheça os idealizadores da edição de 2026 e a trajetória da nossa Escola Regional.</p>
+    </section>
+
+    <main>
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="alterarAba(event, 'aba-comissao')">👥 Comissão Organizadora 2026</button>
+            <button class="tab-btn" onclick="alterarAba(event, 'aba-edicoes')">📚 Edições Anteriores</button>
+        </div>
+
+        <div id="aba-comissao" class="tab-panel active">
+            <section class="info-section">
+                <h2>Comissão Organizadora</h2>
+                <p>A comissão organizadora da 23ª Escola Regional de Redes de Computadores é composta pelos seguintes membros:</p>
+                
+                <div class="grid-comissao">
+                    <div class="membro-card">
+                        <div>
+                            <h3>Profa. Simone Regina Ceolin</h3>
+                            <div class="cargo">Coordenação Geral</div>
+                        </div>
+                        <a href="http://lattes.cnpq.br/7514884760338859" target="_blank" class="lattes-btn">📄 Currículo Lattes</a>
+                    </div>
+
+                    <div class="membro-card">
+                        <div>
+                            <h3>Prof. Rafael Teodósio Pereira</h3>
+                            <div class="cargo">Coordenação do Comitê de Programa ERRC</div>
+                        </div>
+                        <a href="http://lattes.cnpq.br/0447475597832377" target="_blank" class="lattes-btn">📄 Currículo Lattes</a>
+                    </div>
+
+                    <div class="membro-card">
+                        <div>
+                            <h3>Prof. Walter Priesnitz Filho</h3>
+                            <div class="cargo">Coordenação do Comitê de Programa WRSeg</div>
+                        </div>
+                        <a href="http://lattes.cnpq.br/7571421281711966" target="_blank" class="lattes-btn">📄 Currículo Lattes</a>
+                    </div>
+
+                    <div class="membro-card">
+                        <div>
+                            <h3>Prof. Tiago Antônio Rizzetti</h3>
+                            <div class="cargo">Membro do Comitê</div>
+                        </div>
+                        <a href="http://lattes.cnpq.br/4831665039238635" target="_blank" class="lattes-btn">📄 Currículo Lattes</a>
+                    </div>
+
+                    <div class="membro-card">
+                        <div>
+                            <h3>Prof. Renato Preigschadt de Azevedo</h3>
+                            <div class="cargo">Membro do Comitê</div>
+                        </div>
+                        <a href="http://lattes.cnpq.br/3267124090051194" target="_blank" class="lattes-btn">📄 Currículo Lattes</a>
+                    </div>
+
+                    <div class="membro-card">
+                        <div>
+                            <h3>Prof. Rogério Correa Turchetti</h3>
+                            <div class="cargo">Membro do Comitê</div>
+                        </div>
+                        <a href="http://lattes.cnpq.br/1286016553991455" target="_blank" class="lattes-btn">📄 Currículo Lattes</a>
+                    </div>
+
+                    <div class="membro-card">
+                        <div>
+                            <h3>Profa. Marcia Pasin</h3>
+                            <div class="cargo">Membro do Comitê</div>
+                        </div>
+                        <a href="http://lattes.cnpq.br/1611789402968312" target="_blank" class="lattes-btn">📄 Currículo Lattes</a>
+                    </div>
+
+                    <div class="membro-card">
+                        <div>
+                            <h3>Prof. Diego Luis Kreutz</h3>
+                            <div class="cargo">Membro do Comitê</div>
+                        </div>
+                        <a href="http://lattes.cnpq.br/2781747995973774" target="_blank" class="lattes-btn">📄 Currículo Lattes</a>
+                    </div>
+
+                    <div class="membro-card">
+                        <div>
+                            <h3>Prof. Carlos Raniery Paula dos Santos</h3>
+                            <div class="cargo">Membro do Comitê</div>
+                        </div>
+                        <a href="http://lattes.cnpq.br/0538173746410766" target="_blank" class="lattes-btn">📄 Currículo Lattes</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+      
+        <div id="aba-edicoes" class="tab-panel">
+            <section class="info-section">
+                <h2>Edições Anteriores</h2>
+                <p>Histórico de sedes da Escola Regional de Redes de Computadores:</p>
+                
+                <div class="edicoes-list">
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2025</strong> — Porto Alegre<span>(Organização: SENAC)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2024</strong> — Rio Grande/RS<span>(Organização: FURG junto ao WRSeg)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2023</strong> — Porto Alegre/RS<span>(Organização: UFRGS)</span></div>
+                        <a href="https://www.inf.ufrgs.br/errc2023/" target="_blank" class="site-link">Acessar Site</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2021</strong> — Virtual<span>(Organização: IFSul campus Charqueadas)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2020</strong> — Virtual<span>(Organização: UDESC/Unipampa)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2019</strong> — Alegrete<span>(Organização: Unipampa)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2018</strong> — Pelotas<span>(Organização: SENAC)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2017</strong> — Santa Maria<span>(Organização: UFSM)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2016</strong> — Porto Alegre<span>(Organização: SENAC)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2015</strong> — Passo Fundo<span>(Organização: IMED)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2014</strong> — Canoas<span>(Organização: UNILASALLE)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2013</strong> — Porto Alegre<span>(Organização: PUCRS)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2012</strong> — Pelotas<span>(Organização: UFPEL)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2011</strong> — São Leopoldo<span>(Organização: UNISINOS)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2010</strong> — Alegrete<span>(Organização: UNIPAMPA)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2009</strong> — Três de Maio<span>(Organização: SETREM)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2008</strong> — Porto Alegre<span>(Organização: UNIRITTER)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2007</strong> — Santa Maria<span>(Organização: UFSM)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2006</strong> — Passo Fundo<span>(Organização: UPF)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2005</strong> — Santa Cruz do Sul<span>(Organização: UNISC)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2004</strong> — Canoas<span>(Organização: UNILASSALE)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                    <div class="edicao-item">
+                        <div class="edicao-info"><strong>ERRC 2003</strong> — Porto Alegre<span>(Organização: UFRGS)</span></div>
+                        <a href="#" class="site-link inativo">Site Inativo</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-parceiros">
+            <h3>Realização</h3>
+            <div class="grid-parceiros">
+                <img class="logo-parceiro" src="https://www.inf.ufrgs.br/errc2023/wp-content/uploads/2023/08/g12-200x300.png" alt="Logo SBC">
+                <img class="logo-parceiro" src="https://www.ufsm.br/app/themes/ufsm/images/brasao.svg" alt="Logo UFSM">
+                <img class="logo-parceiro" src="https://www.inf.ufrgs.br/errc2023/wp-content/uploads/2023/07/01-CTISM_color_pequeno-291x300.png" alt="Logo CTISM">
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <p>Organização: <strong>CTISM / UFSM</strong> - Santa Maria, RS</p>
+            <p>&copy; 2026 ERRC - Escola Regional de Redes de Computadores.</p>
+            <p style="font-size: 0.8rem; margin-bottom: 10px; opacity: 0.5;">Promovido pela Sociedade Brasileira de Computação (SBC)</p>
+        </div>
+    </footer>
+
+    <script>
+        function alterarAba(evento, idAba) {
+            const paineis = document.querySelectorAll('.tab-panel');
+            paineis.forEach(painel => {
+                painel.classList.remove('active');
+            });
+
+            const botoes = document.querySelectorAll('.tab-btn');
+            botoes.forEach(botao => {
+                botao.classList.remove('active');
+            });
+
+            document.getElementById(idAba).classList.add('active');
+            evento.currentTarget.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
