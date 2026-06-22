@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ERRC 2026 - 23ª Edição da Escola Regional de Redes de Computadores</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; }
@@ -12,17 +12,6 @@
 
         header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 10%; background: #04294f; color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         nav a { color: white; text-decoration: none; margin-left: 25px; font-weight: 600; transition: 0.3s; padding: 5px 10px; border-radius: 4px;}
-        nav a:hover { background: #3a71c4; }
-        }
-        nav a { 
-            color: white; 
-            text-decoration: none; 
-            margin-left: 20px; 
-            font-weight: 600; 
-            transition: 0.3s; 
-            padding: 8px 12px; 
-            border-radius: 4px;
-        }
         nav a:hover { background: #3a71c4; }
         
         .banner { 
@@ -131,7 +120,7 @@
             margin-bottom: 20px;
         }
         .logo-parceiro {
-            max-height: 110px; 
+            max-height: 95px; 
             width: auto;
             filter: grayscale(100%);
             opacity: 0.7;
@@ -143,15 +132,32 @@
         }
 
         footer { 
-            text-align: center; 
-            padding: 45px 20px; 
+            padding: 60px 20px 40px 20px; 
             background: #04294f; 
             color: white; 
             margin-top: 60px; 
             font-size: 0.95rem;
+            text-align: center;
         }
-        footer p { opacity: 0.8; margin-bottom: 5px; }
-        footer strong { opacity: 1; color: #3a71c4; }
+        
+        .footer-parceiros {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-parceiros h3 {
+            font-size: 1rem;
+            color: #3a71c4;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-info p { opacity: 0.8; margin-bottom: 6px; }
+        .footer-info strong { opacity: 1; color: #3a71c4; }
 
         @media (max-width: 992px) {
             header { padding: 1.5rem 5%; }
@@ -166,7 +172,7 @@
             .banner h1 { font-size: 2.2rem; }
             .banner p { font-size: 1rem; }
             .grid-parceiros { gap: 25px; }
-            .logo-parceiro { max-height: 70px; } 
+            .logo-parceiro { max-height: 65px; } 
         }
     </style>
 </head>
@@ -217,7 +223,6 @@
                     <div class="data-item">
                         <div class="evento-data">Submissão de Artigos:</div>
                         <div class="prazo-data">Precisamos decidir...</div>
-                        <!--<div class="prazo-data riscado">(caso algo seja prorrogado ou já ocorreu)</div>-->
                     </div>
                     <div class="data-item">
                         <div class="evento-data">Notificação dos Aceitos:</div>
@@ -262,24 +267,22 @@
 
             <h3>Apoio</h3>
             <div class="grid-parceiros">
-                <img class="logo-parceiro" src="https://i.pinimg.com/originals/e7/9b/ad/e79bad6d4cb3b0d8886da27bdc7147a0.png" alt="Logo UFRGS">
-                <img class="logo-parceiro" src="https://tse2.mm.bing.net/th/id/OIP.OJk6IDtPrxEfod8Dw3c77AHaEH?r=0&cb=thfc1falcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo UNIPAMPA">
-                <img class="logo-parceiro" src="https://lirp.cdn-website.com/705f6f12/dms3rep/multi/opt/UNISINOS---Posi-1920w.png" alt="Logo UNISINOS">
+                <a href="https://www.ufrgs.br/site/"><img class="logo-parceiro" src="https://i.pinimg.com/originals/e7/9b/ad/e79bad6d4cb3b0d8886da27bdc7147a0.png" alt="Logo UFRGS"></a>
+                <a href="https://unipampa.edu.br/portal/"><img class="logo-parceiro" src="imagens/unipampa_logo.png" alt="Logo UNIPAMPA"></a>
+                <a href="https://ead.unisinos.br/inscricao?utm_source=bing&utm_medium=cpc&utm_campaign=486752246&utm_group=1225956621407233&utm_content=&utm_term=unisinos&msclkid=315c1c78f40f11e9a20e76404c5f42e9"><img class="logo-parceiro" src="https://lirp.cdn-website.com/705f6f12/dms3rep/multi/opt/UNISINOS---Posi-1920w.png" alt="Logo UNISINOS"></a>
+                <a href="https://portal.superpadel.com.br/super/cesla/"><img class="logo-parceiro" src="https://play-lh.googleusercontent.com/Nh_MB-F-dOv6sIjWMv9P3-t2bxountkNPeippQdMeS-aVlyR0Bp75MLg_VhR-OQW6g" alt="Logo CESLA"></a>
             </div>
-            
             <h3>Realização</h3>
             <div class="grid-parceiros">
-                 <img class="logo-parceiro" src="https://www.sbc.org.br/images/logo_sbc.png" alt="Logo SBC">
-                <img class="logo-parceiro" src="https://eati.info/static/images/logo/ufsm.png" alt="Logo UFSM">
-                <img class="logo-parceiro" src="https://intranet.ctism.ufsm.br/source/img/logo-ctism-nome.png" alt="Logo CTISM">
+                <a href="https://www.ufsm.br/"><img class="logo-parceiro" src="https://www.ufsm.br/app/themes/ufsm/images/brasao.svg" alt="Logo UFSM"></a>
+                <a href="https://www.ufsm.br/unidades-universitarias/ctism"><img class="logo-parceiro" src="imagens/ctism_logo.png" alt="Logo CTISM"></a>
             </div>
         </section>
     </main>
-
-    <footer>
-        <p>Organização: <strong>CTISM / UFSM</strong> - Santa Maria, RS</p>
-        <p>&copy; 2026 ERRC - 23ª Escola Regional de Redes de Computadores.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.5;">Promovido pela Sociedade Brasileira de Computação (SBC)</p>
+        <div class="footer-info">
+            <p>Organização: <strong>CTISM / UFSM</strong> - Santa Maria, RS</p>
+            <p>&copy; 2026 ERRC - Escola Regional de Redes de Computadores.</p>
+        </div>
     </footer>
 </body>
 </html>
