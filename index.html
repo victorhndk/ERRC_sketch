@@ -137,7 +137,6 @@
             color: white; 
             margin-top: 60px; 
             font-size: 0.95rem;
-            text-align: center;
         }
         
         .footer-parceiros {
@@ -145,6 +144,7 @@
             margin: 0 auto 40px auto;
             padding-bottom: 40px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
         }
         
         .footer-parceiros h3 {
@@ -156,21 +156,32 @@
             font-weight: 700;
         }
 
-        .footer-info p { opacity: 0.8; margin-bottom: 6px; }
-        .footer-info strong { opacity: 1; color: #3a71c4; }
+        .footer-info {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-texto {
+            text-align: left;
+        }
+        .footer-texto p { opacity: 0.8; margin-bottom: 4px; }
+        .footer-texto p:last-child { margin-bottom: 0; }
+        .footer-texto strong { opacity: 1; color: #3a71c4; }
 
         .instagram-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-top: 15px;
             color: rgba(255, 255, 255, 0.7);
             transition: 0.3s ease;
             text-decoration: none;
         }
         .instagram-link svg {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             fill: currentColor;
         }
         .instagram-link:hover {
@@ -192,6 +203,15 @@
             .banner p { font-size: 1rem; }
             .grid-parceiros { gap: 25px; }
             .logo-parceiro { max-height: 65px; } 
+            
+            .footer-info {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-texto {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -310,8 +330,10 @@
         </div>
 
         <div class="footer-info">
-            <p>Organização: <strong>CTISM / UFSM</strong> - Santa Maria, RS</p>
-            <p>© 2026 ERRC - Escola Regional de Redes de Computadores.</p>
+            <div class="footer-texto">
+                <p>Organização: <strong>CTISM / UFSM</strong> - Santa Maria, RS</p>
+                <p>© 2026 ERRC - Escola Regional de Redes de Computadores.</p>
+            </div>
             
             <a href="https://www.instagram.com/errc_escoladeredes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="instagram-link" aria-label="Instagram do Evento">
                 <svg viewBox="0 0 24 24">
