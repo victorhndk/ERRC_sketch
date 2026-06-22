@@ -333,7 +333,6 @@
             <div class="footer-texto">
                 <p>Organização: <strong>CTISM / UFSM</strong> - Santa Maria, RS</p>
                 <p>&copy; 2026 ERRC - Escola Regional de Redes de Computadores.</p>
-                <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 4px;">Visitante nº: <strong id="contador-numero" style="color: #3a71c4;">...</strong></p>
             </div>
             
             <a href="https://www.instagram.com/errc_escoladeredes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="instagram-link" aria-label="Instagram do Evento">
@@ -343,28 +342,5 @@
             </a>
         </div>
     </footer>
-
-    <script>
-        function inicializarContador() {
-
-            const chaveUnica = 'errc2026_ufsm_ctism_visitantes'; 
-            
-            fetch(`https://api.keyv.id/v1/hit/${chaveUnica}`)
-                .then(res => {
-                    if (!res.ok) throw new Error();
-                    return res.json();
-                })
-                .then(data => {
-
-                    document.getElementById('contador-numero').innerText = data.value;
-                })
-                .catch(() => {
-
-                    document.getElementById('contador-numero').innerText = "1"; 
-                });
-        }
-
-        document.addEventListener('DOMContentLoaded', inicializarContador);
-    </script>
 </body>
 </html>
