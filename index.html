@@ -11,7 +11,13 @@
         html { scroll-behavior: smooth; }
 
         header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 10%; background: #04294f; color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo img { max-height: 50px; width: auto; display: block; }
+        
+        .logo img {
+            max-height: 50px; 
+            width: auto;
+            display: block;
+        }
+
         nav a { color: white; text-decoration: none; margin-left: 25px; font-weight: 600; transition: 0.3s; padding: 5px 10px; border-radius: 4px;}
         nav a:hover { background: #3a71c4; }
         
@@ -143,9 +149,22 @@
         .footer-parceiros {
             max-width: 1200px;
             margin: 0 auto 40px auto;
-            padding-bottom: 20px;
+            padding-bottom: 40px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .footer-coluna {
+            flex: 1;
             text-align: center;
+        }
+
+        .footer-coluna-realizacao {
+            border-right: 1px solid rgba(255, 255, 255, 0.1); 
+            padding-right: 40px;
         }
         
         .footer-parceiros h3 {
@@ -153,27 +172,23 @@
             color: #3a71c4;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 700;
         }
 
-        .divisoria-footer {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.05);
-            max-width: 600px;
-            margin: 30px auto;
-        }
-
         .footer-info {
-            max-width: 1200px;
+            max-width: 600px;
             margin: 0 auto;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            gap: 30px; 
             text-align: center;
-            gap: 20px;
         }
         
+        .footer-texto {
+            text-align: center;
+        }
         .footer-texto p { opacity: 0.8; margin-bottom: 4px; }
         .footer-texto p:last-child { margin-bottom: 0; }
         .footer-texto strong { opacity: 1; color: #3a71c4; }
@@ -185,10 +200,11 @@
             color: rgba(255, 255, 255, 0.7);
             transition: 0.3s ease;
             text-decoration: none;
+            flex-shrink: 0;
         }
         .instagram-link svg {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             fill: currentColor;
         }
         .instagram-link:hover {
@@ -207,10 +223,31 @@
             .logo { margin-bottom: 15px; }
             nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
             nav a { margin-left: 0; font-size: 0.9rem; padding: 5px 8px; }
+            
             .banner h1 { font-size: 2.2rem; }
             .banner p { font-size: 1rem; }
             .grid-parceiros { gap: 25px; }
             .logo-parceiro { max-height: 65px; } 
+            
+            .footer-parceiros {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .footer-coluna-realizacao {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+                padding-right: 0;
+                padding-bottom: 40px;
+                width: 100%;
+            }
+            .footer-coluna {
+                width: 100%;
+            }
+
+            .footer-info {
+                flex-direction: column-reverse; 
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -219,7 +256,7 @@
     <header>
         <div class="logo">
             <a href="index.html">
-                <img src="logo_errc_2026.png" alt="Logo ERRC 2026">
+                <img src="imagens/logo_errc_2026.png" alt="Logo ERRC 2026">
             </a>
         </div>
         <nav aria-label="Menu Principal">
@@ -323,19 +360,21 @@
 
     <footer>
         <div class="footer-parceiros">
-            <h3>Realização</h3>
-            <div class="grid-parceiros">
-                <img class="logo-parceiro" src="https://www.ufsm.br/app/themes/ufsm/images/brasao.svg" alt="Logo UFSM">
-                <img class="logo-parceiro" src="imagens/ctism_logo.png" alt="Logo CTISM">
+            <div class="footer-coluna footer-coluna-realizacao">
+                <h3>Realização</h3>
+                <div class="grid-parceiros">
+                    <img class="logo-parceiro" src="https://www.ufsm.br/app/themes/ufsm/images/brasao.svg" alt="Logo UFSM">
+                    <img class="logo-parceiro" src="imagens/ctism_logo.png" alt="Logo CTISM">
+                </div>
             </div>
 
-            <div class="divisoria-footer"></div>
-
-            <h3>Apoio</h3>
-            <div class="grid-parceiros">
-                <img class="logo-parceiro" src="https://i.pinimg.com/originals/e7/9b/ad/e79bad6d4cb3b0d8886da27bdc7147a0.png" alt="Logo UFRGS">
-                <img class="logo-parceiro" src="imagens/unipampa_logo.png" alt="Logo UNIPAMPA">
-                <img class="logo-parceiro" src="https://lirp.cdn-website.com/705f6f12/dms3rep/multi/opt/UNISINOS---Posi-1920w.png" alt="Logo UNISINOS">
+            <div class="footer-coluna">
+                <h3>Apoio</h3>
+                <div class="grid-parceiros">
+                    <img class="logo-parceiro" src="https://i.pinimg.com/originals/e7/9b/ad/e79bad6d4cb3b0d8886da27bdc7147a0.png" alt="Logo UFRGS">
+                    <img class="logo-parceiro" src="imagens/unipampa_logo.png" alt="Logo UNIPAMPA">
+                    <img class="logo-parceiro" src="https://lirp.cdn-website.com/705f6f12/dms3rep/multi/opt/UNISINOS---Posi-1920w.png" alt="Logo UNISINOS">
+                </div>
             </div>
         </div>
 
